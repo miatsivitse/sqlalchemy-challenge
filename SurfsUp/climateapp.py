@@ -103,7 +103,7 @@ def start_to_end():
 
     """For a specified start date and end date, calculate TMIN, TAVG, and TMAX for the dates from the start date to the end date, inclusive"""
     # Query temperature for start date to end date
-    end_temp = session.query(func.min(measurement.tobs),func.max(measurement.tobs),func.avg(measurement.tobs)).filter(measurement.date => '2016-08-02').filter(measurement.date <= '2017-08-02').all()
+    end_temp = session.query(func.min(measurement.tobs),func.max(measurement.tobs),func.avg(measurement.tobs)).filter(measurement.date == '2016-08-02').filter(measurement.date <= '2017-08-02').all()
     session.close()
 
     return jsonify(end_temp)
